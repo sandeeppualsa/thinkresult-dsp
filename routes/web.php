@@ -2,14 +2,11 @@
 
 use App\Http\Controllers\Admin\AdvertiserController;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\AudienceImportController;
 use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\DynamicFieldController;
 use App\Http\Controllers\Admin\InsertionOrderController;
 use App\Http\Controllers\Admin\LineItemController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\ReportingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Advertiser\AuthController as AdvertiserAuthController;
 use App\Http\Controllers\Advertiser\CampaignController as AdvertiserCampaignController;
@@ -48,13 +45,6 @@ Route::middleware('prevent-back')->prefix('admin')->group(function () {
             Route::put('users/{id}', [UserController::class, 'update']);
             Route::delete('users/{id}', [UserController::class, 'destroy']);
             Route::get('users/data', [UserController::class, 'getUsers']);
-
-            Route::get('dynamic-fields', [DynamicFieldController::class, 'index']);
-            Route::get('dynamic-fields/create', [DynamicFieldController::class, 'create']);
-            Route::post('dynamic-fields', [DynamicFieldController::class, 'store']);
-            Route::get('dynamic-fields/{id}/edit', [DynamicFieldController::class, 'edit']);
-            Route::put('dynamic-fields/{id}', [DynamicFieldController::class, 'update']);
-            Route::delete('dynamic-fields/{id}', [DynamicFieldController::class, 'destroy']);
 
             Route::get('advertisers', [AdvertiserController::class, 'index']);
             Route::get('advertisers/create', [AdvertiserController::class, 'create']);
